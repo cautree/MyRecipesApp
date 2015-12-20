@@ -11,7 +11,7 @@ class RecipeTest <ActiveSupport::TestCase
   end
 
   test "name should be present" do
-    @recipe.name=""
+    @recipe.name=" "
     assert_not @recipe.valid?
   end
   
@@ -26,14 +26,13 @@ class RecipeTest <ActiveSupport::TestCase
   end
   
   test "summary should be present" do
-    @recipe.summary=""
+    @recipe.summary=" "
     assert_not @recipe.valid?
   end
   
   test "summary length should not be too long" do
     @recipe.summary="a"*151
     assert_not @recipe.valid?
-    
   end
   
   test "summary length should not be too short" do
@@ -42,7 +41,7 @@ class RecipeTest <ActiveSupport::TestCase
   end
   
   test "description should be present" do
-    @recipe.description=""
+    @recipe.description=" "
     assert_not @recipe.valid?
   end
   

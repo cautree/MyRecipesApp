@@ -42,10 +42,19 @@ class ChefTest <ActiveSupport::TestCase
   end
   
   test "email address should accepte vaild email address" do
-    
+    valid_addresses=%w[user@eee.com R_TDD-DS@eee.hello.org user@example.com first.last@eem.au laura.joe@monk.com]
+    valid_addresses.each do |va|
+      @chef.email=va
+      assert @chef.valid?, '#{va.inspect} should be valid'
+    end
   end
   
   test "email address should reject invalid email address" do
+    invalid_addresses=%w[user@eee,com R_TDD-DSateee.hello.org user@example first.last@e_em__.com laura.joe@ee+aar.cm]
+    invalid_addresses.each do |iv|
+      @chef.email=iv
+      assert_not @chef.valid?, '#{iv.inspect} should be invalid'
+    end
   end
-  
+ 
 end
