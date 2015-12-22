@@ -2,7 +2,7 @@ require 'test_helper'
 
 class RecipeTest <ActiveSupport::TestCase
   def setup
-    @chef=Chef.create(chefname: "bob", email: "bob@example.com")
+    @chef=Chef.creategit(chefname: "bob", email: "bob@example.com")
     @recipe=@chef.recipes.build(name: "chicken parm", summary: "this is the best chicken parm recipe ever", 
     description: "cook for 20min and then add source and onion")
   end
